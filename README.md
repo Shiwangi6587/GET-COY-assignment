@@ -1,3 +1,4 @@
+https://medium.com/@interviewready/high-level-design-for-tinder-d28f9a02cf61 - Referred to HLL for TINDER Application
 # Coy Discover
 
 A swipe-based **Discover** tab for Coy, built as a standalone app next to a blank placeholder **Home** tab. Next.js 14 (App Router), mobile-first, API routes, JSON-file persistence, Vitest tests.
