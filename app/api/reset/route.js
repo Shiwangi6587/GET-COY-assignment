@@ -1,9 +1,6 @@
-import { NextResponse } from 'next/server';
 import { save } from '@/lib/db';
+import { emptyDb } from '@/lib/engine';
+import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
-
-// Demo helper: clears all swipes and matches.
-export async function POST() {
-  save({ swipes: {}, matches: [] });
-  return NextResponse.json({ ok: true });
-}
+// Demo helper: clears swipes, matches, chats and reveals.
+export const POST = () => { save(emptyDb()); return NextResponse.json({ ok: true }); };

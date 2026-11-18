@@ -1,10 +1,5 @@
-import { NextResponse } from 'next/server';
-import { PROFILES } from '@/lib/seed';
-import { load, publicProfile } from '@/lib/db';
+import { load } from '@/lib/db';
+import { feed } from '@/lib/engine';
+import { reply } from '@/lib/http';
 export const dynamic = 'force-dynamic';
-
-export async function GET() {
-  const { swipes } = load();
-  const profiles = PROFILES.filter((p) => !swipes[p.id]).map(publicProfile);
-  return NextResponse.json({ profiles });
-}
+export const GET = (req) => reply(feed(load(), { campusOnly: new URL(req.url).searchParams.get('campus') === 'mine' }));
